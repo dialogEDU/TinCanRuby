@@ -28,7 +28,7 @@ require 'tin_can_api/lrs_response'
 require "tin_can_api/remote_lrs"
 
 begin
-  require 'pry'
+  # require 'pry'
 rescue LoadError
 end
 
