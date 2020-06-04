@@ -318,7 +318,7 @@ module TinCanApi
     def connection
       base_url = "#{uri.scheme}://#{uri.host}"
       base_url = "#{base_url}:#{uri.port}" if uri.port
-      @connection ||= Faraday.new(:url => base_url) do |faraday|
+      @connection ||= Faraday.new(url: base_url, request: { open_timeout: 1, timeout: 1 }) do |faraday|
         faraday.request  :url_encoded             # form-encode POST params
         faraday.response :logger                  # log requests to STDOUT
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
